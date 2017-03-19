@@ -8,7 +8,6 @@ export default class Card extends Component {
   render(){
 
     return(
-
       <div className="ui cards">
         <div className="card">
           <div className="content">
@@ -30,7 +29,6 @@ export default class Card extends Component {
             </div>
           </div>
         </div>
-
       </div>
     )
   }
