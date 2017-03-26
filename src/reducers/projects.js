@@ -1,8 +1,14 @@
-export default function projects(state = ["Project 1","Project2"] , action = {}){
+export default function projects(state = [] , action = {}){
 
 
   switch(action.type)
   {
+
+    case "FETCH_PROJECTS":
+
+        return action.payload;
+
+        break;
 
     default :  return state;
   }

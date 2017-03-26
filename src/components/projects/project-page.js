@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import ProjectList  from './project-list';
-
+import { fetchProjects } from '../../actions/project-actions';
 class ProjectPage extends Component {
 
 
@@ -12,6 +12,7 @@ class ProjectPage extends Component {
   componentDidMount(){
 
     console.log(this.props);
+    this.props.fetchProjects();
 
   }
 
@@ -39,4 +40,5 @@ function mapPropsToState(state){
 
 }
 
-export default connect(mapPropsToState)(ProjectPage);
+
+export default connect(mapPropsToState,{fetchProjects})(ProjectPage);

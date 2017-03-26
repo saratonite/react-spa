@@ -18,11 +18,6 @@ import Notfound from './components/notfound';
 import ProjectPage from './components/projects/project-page';
 import ProjectDetails from './components/projects/project-details';
 
-console.log(ProjectDetails)
-
-
-
-
 
 class App extends Component {
   render() {
