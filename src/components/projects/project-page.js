@@ -2,14 +2,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import ProjectList  from './project-list';
 
-console.info(ProjectList)
-
 class ProjectPage extends Component {
 
-  constructor(props) {
-    super(props)
-
-  }
 
   /*
   * Component did mount
@@ -28,7 +22,7 @@ class ProjectPage extends Component {
 
       <div>
         <h1>Projects</h1>
-        <ProjectList></ProjectList>
+        <ProjectList projects={this.props.projects}></ProjectList>
 
       </div>
 

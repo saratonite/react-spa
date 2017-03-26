@@ -16,6 +16,9 @@ import Home from './components/home';
 import About from './components/about';
 import Notfound from './components/notfound';
 import ProjectPage from './components/projects/project-page';
+import ProjectDetails from './components/projects/project-details';
+
+console.log(ProjectDetails)
 
 
 
@@ -25,23 +28,30 @@ class App extends Component {
   render() {
     return (
     <Provider store={store}>
-      <div className="ui  container">
-          <Router>
-            <div>
-              <div className="ui three item menu">
-                <Link className="item" to="/">Home</Link>
-                <Link className="item" to="/projects">Projects</Link>
-                <Link className="item" to="/about">Topics</Link>
+      <div className="ui app-container">
+          <div className="app-main">
+            <Router>
+              <div>
+                <div className="ui three item menu">
+                  <Link className="item" to="/">Home</Link>
+                  <Link className="item" to="/projects">Projects</Link>
+                  <Link className="item" to="/about">Topics</Link>
+                </div>
+                <Switch>
+                  <Route exact path="/" component={Home}/>
+                  <Route path="/about" component={About}/>
+                  <Route exact path="/projects" component={ProjectPage}></Route>
+                  <Route exact path="/projects/:id" component={ProjectDetails}></Route>
+                  <Route component={Notfound}/>
+                </Switch>
               </div>
-              <Switch>
-                <Route exact path="/" component={Home}/>
-                <Route path="/about" component={About}/>
-                <Route path="/projects" component={ProjectPage}></Route>
-                <Route component={Notfound}/>
-              </Switch>
+            </Router>
             </div>
-          </Router>
+          <footer>
+          &copy; Sarath
+          </footer>
         </div>
+
     </Provider>
     );
   }
