@@ -7,7 +7,7 @@ export default class ProjectList extends Component {
 
 
   listProjects(){
-    if(_.size(this.props.projects) == 0) return <h2>Empty Projects</h2>;
+    if(_.size(this.props.projects) === 0) return <h2>Empty Projects</h2>;
     return _.map(this.props.projects,(p,i) => {
 
       return(

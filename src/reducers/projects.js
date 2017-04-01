@@ -6,9 +6,7 @@ export default function projects(state = [] , action = {}){
 
     case "FETCH_PROJECTS":
 
-        return action.payload;
-
-        break;
+        return action.payload
 
     default :  return state;
   }
