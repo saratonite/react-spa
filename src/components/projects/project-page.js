@@ -11,7 +11,6 @@ class ProjectPage extends Component {
 
   componentDidMount(){
 
-    console.log(this.props);
     this.props.fetchProjects();
 
   }
@@ -23,7 +22,7 @@ class ProjectPage extends Component {
 
       <div>
         <h1>Projects</h1>
-        <ProjectList projects={this.props.projects}></ProjectList>
+        <ProjectList projects={this.props.project.list}></ProjectList>
 
       </div>
 
@@ -35,7 +34,7 @@ class ProjectPage extends Component {
 function mapPropsToState(state){
 
   return {
-    projects:state.projects
+    project:state.project
   }
 
 }

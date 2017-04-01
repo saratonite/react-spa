@@ -5,6 +5,6 @@ import repository   from './repository'
 
 export default combineReducers({
   repository:repository,
-  projects,
+  project:projects,
 
 })

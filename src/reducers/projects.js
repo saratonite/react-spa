@@ -1,4 +1,4 @@
-export default function projects(state = [] , action = {}){
+export default function projects(state = {list:[],singleProject:{}} , action = {}){
 
 
   switch(action.type)
@@ -6,7 +6,11 @@ export default function projects(state = [] , action = {}){
 
     case "FETCH_PROJECTS":
 
-        return action.payload
+        return {...state,list:action.payload}
+
+    case "FETCH_SINGLE_PROJECT":
+
+        return { ...state , singleProject : action.payload };
 
     default :  return state;
   }
