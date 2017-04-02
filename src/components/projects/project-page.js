@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import ProjectList  from './project-list';
 import { fetchProjects } from '../../actions/project-actions';
-import Loader from '../../shared/loader';
+import Loader from '../shared/loader';
 class ProjectPage extends Component {
 
 

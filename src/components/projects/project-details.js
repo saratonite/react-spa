@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchProject } from '../../actions/project-actions';
+import Loader from '../shared/loader';
+import CreateTask from '../task/create-task';
+import TaskList from '../task/task-list';
 
 class ProjectDetails extends Component {
 
@@ -14,12 +17,28 @@ class ProjectDetails extends Component {
 
    render() {
 
-     let { project } = this.props;
+     let { project , isLoading } = this.props;
+
+     let content = "";
+
+     if(isLoading) {
+
+       content =  <Loader></Loader>
+
+     }
+     else{
+       content = <div>
+                    <h1>{ project.name }</h1>
+                    <p>{ project.discription }</p>
+                    <TaskList projectId={this.props.match.params.id}/>
+                    <CreateTask projectId={this.props.match.params.id}/>
+
+                  </div>
+     }
 
      return(
        <div>
-          <h1>{ project.name }</h1>
-          <p>{ project.discription }</p>
+            {content}
        </div>
 
      )
@@ -29,7 +48,8 @@ class ProjectDetails extends Component {
 function mapPropsToState(state){
 
   return {
-    project: state.project.singleProject
+    project: state.project.singleProject,
+    isLoading: state.project.isLoading
   }
 
 }
