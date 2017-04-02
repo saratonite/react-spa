@@ -1,4 +1,4 @@
-export default function projects(state = {list:[],singleProject:{}} , action = {}){
+export default function projects(state = {list:[],singleProject:{},isLoading:false} , action = {}){
 
 
   switch(action.type)
@@ -10,7 +10,11 @@ export default function projects(state = {list:[],singleProject:{}} , action = {
 
     case "FETCH_SINGLE_PROJECT":
 
-        return { ...state , singleProject : action.payload };
+        return { ...state , singleProject : action.payload }
+
+    case "TOGGLE_LOADER":
+
+        return { ...state, isLoading:action.payload }
 
     default :  return state;
   }

@@ -18,6 +18,9 @@ import Notfound from './components/notfound';
 import ProjectPage from './components/projects/project-page';
 import ProjectDetails from './components/projects/project-details';
 
+/**/
+import Login from './components/auth/login';
+
 
 class App extends Component {
   render() {
@@ -37,6 +40,7 @@ class App extends Component {
                   <Route path="/about" component={About}/>
                   <Route exact path="/projects" component={ProjectPage}></Route>
                   <Route exact path="/projects/:id" component={ProjectDetails}></Route>
+                  <Route exact path="/login" component={Login} ></Route>
                   <Route component={Notfound}/>
                 </Switch>
               </div>

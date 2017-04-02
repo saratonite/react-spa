@@ -10,9 +10,11 @@ export  function fetchProjects(){
   projectRef.off()
 
   return dispatch => {
+    dispatch({type:"TOGGLE_LOADER",payload:true})
     projectRef.on('value',snapshot => {
 
       dispatch({type:"FETCH_PROJECTS",payload:snapshot.val()});
+      dispatch({type:"TOGGLE_LOADER",payload:false})
     })
   }
 
@@ -28,11 +30,25 @@ export function fetchProject(id){
 
   return dispatch => {
 
-    projectRef.child(id).on('value', snapshot =>{
+    dispatch({type:"TOGGLE_LOADER",payload:true})
+
+    projectRef.child(id).on('value', snapshot => {
 
       dispatch({type:"FETCH_SINGLE_PROJECT",payload:snapshot.val()})
+
+      dispatch({type:"TOGGLE_LOADER",payload:false})
+
     })
 
   }
+
+}
+
+/*
+*
+*/
+export function toggleLoader(value) {
+
+  return {type:"TOGGLE_LOADER",payload:value}
 
 }
