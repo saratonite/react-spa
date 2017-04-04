@@ -19,9 +19,19 @@ export default class TaskListItem extends Component {
 
     return(
           <div className="ui clearing segment">
+            <div className="task-item">
+                <div className="item-content">
+                  <input type="checkbox" name="completed" checked={task.completed} /> {task.title}
+                </div>
 
-          <input type="checkbox" name="completed" checked={task.completed} /> {task.title}
-            <div className="mini ui red right floated button" onClick={this.onClickRemove}>REMOVE</div>
+                <div className="item-actions">
+                  <div className="mini ui red right floated button" onClick={this.onClickRemove}>REMOVE</div>
+                </div>
+
+
+            </div>
+
+
           </div>
 
     );

@@ -42,7 +42,7 @@ class CreateTask extends Component {
 
 
     return(
-      <div className="ui form">
+      <div className="ui segment form">
       <h3>Add Task</h3>
       <div className="field">
         <label>Title</label>
@@ -51,6 +51,11 @@ class CreateTask extends Component {
         <div className="field">
           <label>Description</label>
           <textarea rows="2" name="description" onChange={this.handleChange} value={this.state.description}></textarea>
+        </div>
+
+        <div className="field">
+          <label>Estimated Time (In Hours)</label>
+          <input type="number" name="estimated_time" onChange={this.handleChange}  />
         </div>
 
         <button className="ui button" onClick={this.handleSubmit}>ADD</button>
