@@ -1,0 +1,13 @@
+.task-item {
+  display: flex;
+  background-color: #fefefe;
+  border: 1px solid #cdcdcd;
+  padding:5px;
+  margin-bottom: 3px;
+}
+.task-item .item-content{
+  flex-grow: 1;
+}
+.task-item .item-actions{
+
+}

@@ -33,3 +33,21 @@ export function createTask(projectId,task){
   }
 
 }
+
+
+export function removeTask(projectId,taskId){
+
+
+    let taskRef = projectRef.child(projectId + "/tasks/"+taskId)
+
+
+    return dispatch=> {
+
+      taskRef.remove().then(function(){
+
+          dispatch({type:"TASK_REMOVED",payload:true})
+
+      });
+
+    }
+}

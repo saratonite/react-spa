@@ -26,9 +26,13 @@ class CreateTask extends Component {
     console.info("Just clicked submit button")
     this.props.addTask(this.props.projectId,this.state);
 
+    this.setState({title:'',description:''});
+
   }
 
   handleChange(e) {
+
+    console.log(e.target.name)
 
     this.setState({[e.target.name]:e.target.value});
 
@@ -39,13 +43,14 @@ class CreateTask extends Component {
 
     return(
       <div className="ui form">
+      <h3>Add Task</h3>
       <div className="field">
         <label>Title</label>
         <input type="text" name="title" onChange={this.handleChange} value={this.state.title} />
       </div>
         <div className="field">
           <label>Description</label>
-          <textarea rows="2" defaultValue={this.state.description}></textarea>
+          <textarea rows="2" name="description" onChange={this.handleChange} value={this.state.description}></textarea>
         </div>
 
         <button className="ui button" onClick={this.handleSubmit}>ADD</button>

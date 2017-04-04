@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchTaskList } from '../../actions/task-actions';
+import TaskListItem from './task-list-item';
+import { fetchTaskList , removeTask } from '../../actions/task-actions';
 import _ from 'underscore';
 
 class TaskList extends Component {
 
+
+  constructor(props){
+    super(props)
+    this.itemRemoveHandler = this.itemRemoveHandler.bind(this)
+  }
 
 
   componentDidMount() {
@@ -13,6 +19,13 @@ class TaskList extends Component {
     this.props.fetchTaskList(projectId);
   }
 
+
+  /* On Remove An Item */
+
+  itemRemoveHandler(taskId){
+    let { projectId } = this.props;
+    this.props.removeTask(projectId,taskId);
+  }
 
   renderList(){
 
@@ -24,12 +37,22 @@ class TaskList extends Component {
 
     if(_.size(tasks) === 0) {
 
-      return <div>No Tasks</div>
+      return (
+        <div className="ui icon message">
+          <i className="inbox icon"></i>
+          <div className="content">
+            <div className="header">
+            Task list empty!
+            </div>
+            <p>Add new tasks!!</p>
+          </div>
+        </div>
+      )
 
     }
 
       return _.map(tasks,(task,key) => {
-         if(task) return <p key={key}>{task.title}</p>
+         if(task) return <TaskListItem key={key} task={task} taskId={key} removeItemHandler={this.itemRemoveHandler}></TaskListItem>
       })
 
 
@@ -38,16 +61,9 @@ class TaskList extends Component {
 
   render() {
     return(
-      <div className="ui feed">
-        <div className="event">
-          <div className="label">
+      <div className="ui">
 
-          </div>
-          <div className="content">
-            You added Elliot Fu to the group <a>Coworkers</a>
-            {this.renderList()}
-          </div>
-        </div>
+          {this.renderList()}
       </div>
     )
   }
@@ -61,4 +77,4 @@ function mapPropsToState(state){
 
 }
 
-export default connect(mapPropsToState,{fetchTaskList}) (TaskList);
+export default connect(mapPropsToState,{ fetchTaskList,removeTask }) (TaskList);

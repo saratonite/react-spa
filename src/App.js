@@ -33,7 +33,7 @@ class App extends Component {
                 <div className="ui three item menu">
                   <Link className="item" to="/">Home</Link>
                   <Link className="item" to="/projects">Projects</Link>
-                  <Link className="item" to="/about">Topics</Link>
+                  <Link className="item" to="/about">About</Link>
                 </div>
                 <Switch>
                   <Route exact path="/" component={Home}/>
