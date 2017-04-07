@@ -6,7 +6,7 @@ export default class About extends Component {
     return(
 
       <div className="error-page">
-        <h1>This is me Sarath </h1>
+        <h1>54R47H </h1>
       </div>
     );
   }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import TaskListItem from './task-list-item';
-import { fetchTaskList , removeTask } from '../../actions/task-actions';
+import { fetchTaskList,removeTask,updateTask } from '../../actions/task-actions';
 import _ from 'underscore';
 
 class TaskList extends Component {
@@ -10,6 +10,7 @@ class TaskList extends Component {
   constructor(props){
     super(props)
     this.itemRemoveHandler = this.itemRemoveHandler.bind(this)
+    this.taskUpdateHandler = this.taskUpdateHandler.bind(this)
   }
 
 
@@ -25,6 +26,14 @@ class TaskList extends Component {
   itemRemoveHandler(taskId){
     let { projectId } = this.props;
     this.props.removeTask(projectId,taskId);
+  }
+
+  /* Task Update */
+
+  taskUpdateHandler(taskId,taskBody) {
+    console.log("Task update handler",taskBody)
+    let { projectId } = this.props;
+    this.props.updateTask(projectId,taskId,taskBody);
   }
 
   renderList(){
@@ -52,7 +61,7 @@ class TaskList extends Component {
     }
 
       return _.map(tasks,(task,key) => {
-         if(task) return <TaskListItem key={key} task={task} taskId={key} removeItemHandler={this.itemRemoveHandler}></TaskListItem>
+         if(task) return <TaskListItem key={key} task={task} taskId={key} removeItemHandler={this.itemRemoveHandler} taskUpdateHandler={this.taskUpdateHandler}></TaskListItem>
       })
 
 
@@ -77,4 +86,4 @@ function mapPropsToState(state){
 
 }
 
-export default connect(mapPropsToState,{ fetchTaskList,removeTask }) (TaskList);
+export default connect(mapPropsToState,{ fetchTaskList,removeTask,updateTask}) (TaskList);

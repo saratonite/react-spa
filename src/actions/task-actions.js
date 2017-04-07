@@ -34,7 +34,14 @@ export function createTask(projectId,task){
 
 }
 
+export function updateTask(projectId,taskId,task) {
 
+  let taskRef = projectRef.child(projectId + "/tasks/"+taskId)
+  taskRef.set(task);
+
+}
+
+/* Remove Task */
 export function removeTask(projectId,taskId){
 
 
