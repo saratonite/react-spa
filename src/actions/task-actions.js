@@ -37,7 +37,17 @@ export function createTask(projectId,task){
 export function updateTask(projectId,taskId,task) {
 
   let taskRef = projectRef.child(projectId + "/tasks/"+taskId)
-  taskRef.set(task);
+  return dispatch => {
+
+    taskRef.set(task)
+           .then(res=>{
+
+             dispatch({type:'TASK_UPDATED',payload:true})
+
+           })
+
+  }
+
 
 }
 

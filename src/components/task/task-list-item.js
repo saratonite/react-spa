@@ -16,12 +16,11 @@ export default class TaskListItem extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.info('Next props',nextProps)
     this.setState({task:nextProps.task,taskId:nextProps.taskId});
 
   }
 
-  /* Chnage completed checkbox */
+  /*  Change completed checkbox */
   changeCompleted(e){
     let task = this.state.task
     task.completed = !task.completed
