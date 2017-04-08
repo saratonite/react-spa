@@ -10,6 +10,11 @@ export default class TaskListItem extends Component {
 
   }
 
+  /**/
+  componentWillMount() {
+    this.setState({task:this.props.task,taskId:this.props.taskId});
+  }
+
   componentWillReceiveProps(nextProps) {
     console.info('Next props',nextProps)
     this.setState({task:nextProps.task,taskId:nextProps.taskId});
