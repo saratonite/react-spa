@@ -57,6 +57,7 @@ export default class TaskListItem extends Component {
                 </div>
 
                 <div className="item-actions">
+                  <div className="mini ui violet  button">VIEW</div>
                   <div className="mini ui red right floated button" onClick={this.onClickRemove}>REMOVE</div>
                 </div>
 
