@@ -14,15 +14,13 @@ class CreateTask extends Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleCancel = this.handleCancel.bind(this);
 
     this.state = Object.assign({errors:{}},props.task);
 
 
   }
 
-  componentDidMount(){
-    console.info(':::::::',this.props)
-  }
 
   handleSubmit(){
 
@@ -61,9 +59,14 @@ class CreateTask extends Component {
 
   }
 
-  handleChange(e) {
+  /* Reset state */
 
-    console.log(e.target.name)
+  handleCancel() {
+
+    this.setState({title:'',description:'',errors:{}});
+  }
+
+  handleChange(e) {
 
     this.setState({[e.target.name]:e.target.value});
 
@@ -93,6 +96,7 @@ class CreateTask extends Component {
         </div>
 
         <button className="ui button" onClick={this.handleSubmit}>ADD</button>
+        <button className="ui button" onClick={this.handleCancel}>CANCEL</button>
       </div>
     )
 
