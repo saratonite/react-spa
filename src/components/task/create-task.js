@@ -22,7 +22,9 @@ class CreateTask extends Component {
   }
 
 
-  handleSubmit(){
+  handleSubmit(e){
+
+    e.preventDefault();
 
     if(!this.validate()){
       return false;
@@ -77,7 +79,7 @@ class CreateTask extends Component {
     let { errors } = this.state;
 
     return(
-      <div className="ui segment form">
+      <form className="ui segment form" onSubmit={this.handleSubmit}>
       <h3>Add Task</h3>
       <div className={ classNames("field",{'error':errors.title}) }>
         <label>Title</label>
@@ -95,9 +97,9 @@ class CreateTask extends Component {
           <input type="number" name="estimated_time" onChange={this.handleChange}  />
         </div>
 
-        <button className="ui button" onClick={this.handleSubmit}>ADD</button>
-        <button className="ui button" onClick={this.handleCancel}>CANCEL</button>
-      </div>
+        <button className="ui button" >ADD</button>
+        <button type="button" className="ui button" onClick={this.handleCancel}>CANCEL</button>
+      </form>
     )
 
   }
