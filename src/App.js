@@ -17,6 +17,7 @@ import About from './components/about';
 import Notfound from './components/notfound';
 import ProjectPage from './components/projects/project-page';
 import ProjectDetails from './components/projects/project-details';
+import CreateProject from './components/projects/create-project';
 
 /**/
 import Login from './components/auth/login';
@@ -39,6 +40,7 @@ class App extends Component {
                   <Route exact path="/" component={Home}/>
                   <Route path="/about" component={About}/>
                   <Route exact path="/projects" component={ProjectPage}></Route>
+                  <Route path="/projects/new" component={CreateProject}></Route>
                   <Route exact path="/projects/:id" component={ProjectDetails}></Route>
                   <Route exact path="/login" component={Login} ></Route>
                   <Route component={Notfound}/>

@@ -16,7 +16,7 @@ export default class ProjectList extends Component {
           <div className="content">
             <div className="header">{p.name}</div>
             <div className="description">
-             {p.discription}
+             {p.description}
             </div>
           </div>
             <Link className="ui bottom attached button" to={'projects/'+i}>View</Link>

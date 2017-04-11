@@ -44,6 +44,22 @@ export function fetchProject(id){
 
 }
 
+/* Create Project */
+
+export function createProject(project) {
+
+  return dispatch => {
+
+    projectRef.push(project,()=>{
+
+      dispatch({type:'PROJECT_CREATED',payload:true});
+
+    })
+
+  }
+
+}
+
 /*
 *
 */
