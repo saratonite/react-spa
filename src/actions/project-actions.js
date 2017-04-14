@@ -1,4 +1,5 @@
-import db from '../database';
+import  Fb   from '../database';
+let db = Fb.Database;
 
 let projectRef = db.ref("bucket");
 

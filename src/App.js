@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import './App.css';
 import {
   BrowserRouter as Router,
@@ -7,10 +8,6 @@ import {
   Switch
 } from 'react-router-dom';
 
-import {Provider} from 'react-redux';
-
-// Import store
-import store  from './store'
 
 import Home from './components/home';
 import About from './components/about';
@@ -19,14 +16,20 @@ import ProjectPage from './components/projects/project-page';
 import ProjectDetails from './components/projects/project-details';
 import CreateProject from './components/projects/create-project';
 
+import { authChange , loginUsingEmail } from './actions/auth-actions';
+
 /**/
 import Login from './components/auth/login';
 
 
 class App extends Component {
+  componentDidMount() {
+    console.info('App::',this.props)
+    this.props.authChange();
+  }
   render() {
     return (
-    <Provider store={store}>
+
       <div className="ui app-container">
           <div className="app-main ">
             <Router>
@@ -53,9 +56,15 @@ class App extends Component {
           </footer>
         </div>
 
-    </Provider>
+
     );
   }
 }
 
-export default App;
+function mapStateToProps(state) {
+  return {
+    auth:state.auth
+  }
+}
+
+export default connect(mapStateToProps,{ authChange, loginUsingEmail }) (App);
