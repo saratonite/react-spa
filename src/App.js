@@ -20,6 +20,7 @@ import { authChange , loginUsingEmail } from './actions/auth-actions';
 
 /**/
 import Login from './components/auth/login';
+import Signup from './components/auth/signup';
 
 
 class App extends Component {
@@ -46,6 +47,7 @@ class App extends Component {
                   <Route path="/projects/new" component={CreateProject}></Route>
                   <Route exact path="/projects/:id" component={ProjectDetails}></Route>
                   <Route exact path="/login" component={Login} ></Route>
+                  <Route exact path="/signup" component={Signup} ></Route>
                   <Route component={Notfound}/>
                 </Switch>
               </div>

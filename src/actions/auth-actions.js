@@ -26,7 +26,26 @@ export function loginUsingEmail(email,password) {
         })
         .catch(e=>{
           console.log('Login Error!!')
+          console.log(e);
           dispatch({type:'LOGIN_ERROR',payload:e})
         })
   }
+}
+
+export function signupUsinEmail(email,password){
+
+  return dispatch => {
+    auth.createUserWithEmailAndPassword(email,password)
+        .then(data =>{
+          console.info('Signup Successfully',data);
+          dispatch({type:'SIGNUP_ERROR',payload:data})
+
+        })
+        .catch(error =>{
+          console.log(error);
+          dispatch({type:'SIGNUP_SUCCESS',payload:error})
+
+        })
+  }
+
 }
