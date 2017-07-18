@@ -16,6 +16,8 @@ import ProjectPage from './components/projects/project-page';
 import ProjectDetails from './components/projects/project-details';
 import CreateProject from './components/projects/create-project';
 
+import SingleTask from './components/task/single-task';
+
 import { authChange , loginUsingEmail } from './actions/auth-actions';
 
 /**/
@@ -46,6 +48,7 @@ class App extends Component {
                   <Route exact path="/projects" component={ProjectPage}></Route>
                   <Route path="/projects/new" component={CreateProject}></Route>
                   <Route exact path="/projects/:id" component={ProjectDetails}></Route>
+                  <Route exact path="/projects/:id/tasks/:taskId" component={ SingleTask }></Route>
                   <Route exact path="/login" component={Login} ></Route>
                   <Route exact path="/signup" component={Signup} ></Route>
                   <Route component={Notfound}/>

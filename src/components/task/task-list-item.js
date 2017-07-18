@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import task_list_item from './task-list-item.css';
+import { Link } from 'react-router-dom';
 export default class TaskListItem extends Component {
 
   constructor(props){
@@ -57,7 +58,7 @@ export default class TaskListItem extends Component {
                 </div>
 
                 <div className="item-actions">
-                  <div className="mini ui violet  button">VIEW</div>
+                  <Link to={'/projects/'+ this.props.projectId+'/tasks/'+this.props.taskId} className="mini ui violet  button">VIEW</Link>
                   <div className="mini ui red right floated button" onClick={this.onClickRemove}>REMOVE</div>
                 </div>
 

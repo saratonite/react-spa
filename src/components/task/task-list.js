@@ -61,7 +61,7 @@ class TaskList extends Component {
     }
 
       return _.map(tasks,(task,key) => {
-         if(task) return <TaskListItem key={key} task={task} taskId={key} removeItemHandler={this.itemRemoveHandler} taskUpdateHandler={this.taskUpdateHandler}></TaskListItem>
+         if(task) return <TaskListItem key={key} task={task} taskId={key} projectId={this.props.projectId} removeItemHandler={this.itemRemoveHandler} taskUpdateHandler={this.taskUpdateHandler}></TaskListItem>
       })
 
 
