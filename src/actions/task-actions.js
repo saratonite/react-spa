@@ -53,6 +53,21 @@ export function updateTask(projectId,taskId,task) {
 
 }
 
+export function getTask(projectId,taskId) {
+
+  let taskRef = projectRef.child(projectId + '/tasks/' + taskId);
+
+  console.log('-----------',projectId,taskId)
+
+  return dispatch => {
+    taskRef.on('value',snapshot => {
+      console.info('FETCHED SINGLE task',snapshot.val())
+      dispatch({type:'FETCH_SINGLE_TASK', payload: snapshot.val()})
+    })
+  }
+
+}
+
 /* Remove Task */
 export function removeTask(projectId,taskId){
 

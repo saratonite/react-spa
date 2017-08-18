@@ -7,6 +7,8 @@ export default function TaskReducer(state = {list:{},singleTask:{},newTask:{titl
     case 'TASK_CREATED':
         return { ...state, newTask:{title:'',description:''}}
 
+    case 'FETCH_SINGLE_TASK':
+        return { ...state, singleTask:action.payload };
     default:
        return state;
   }
